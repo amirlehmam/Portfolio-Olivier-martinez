@@ -1,0 +1,1209 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Olivier Martinez — Stratège Croissance, Partenariats & Solutions IA</title>
+    
+    <!-- Google Fonts: Inter pour une lisibilité moderne immédiate -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icônes Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind CSS (Play CDN pour un style précis et réactif) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Inter"', 'sans-serif'],
+            },
+            colors: {
+              pureBg: '#FFFFFF',
+              accentLightBg: '#F9FAFB',
+              darkBorder: '#E5E7EB',
+              charcoalHead: '#000000',
+              charcoalText: '#1F2937',
+              mutedText: '#4B5563',
+              luxuryBlue: '#2563EB',
+              luxuryBlueHover: '#1D4ED8'
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Styles CSS personnalisés pour l'esthétique minimaliste Noir & Blanc à accents Bleus -->
+    <style id="editorial-portfolio-styles">
+      :root {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: #FFFFFF;
+        color: #1F2937;
+        overflow-x: hidden;
+      }
+
+      /* Hover states fluides et épurés avec ombre bleue */
+      .card-accent-premium {
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .card-accent-premium:hover {
+        border-color: #2563EB;
+        box-shadow: 0 20px 48px -12px rgba(37, 99, 235, 0.08);
+        transform: translateY(-2px);
+      }
+
+      /* Transitions au scroll (scroll reveal) */
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Personnalisation de la barre de défilement */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #FFFFFF;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #D1D5DB;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #9CA3AF;
+      }
+
+      /* Cacher la barre de défilement horizontale sur les onglets mobiles */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Barre de progression de lecture supérieure en bleu */
+      #scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3.5px;
+        width: 0%;
+        z-index: 100;
+        transition: width 0.1s ease-out;
+      }
+
+      /* Transitions du slider d'images */
+      .slider-container {
+        position: relative;
+        overflow: hidden;
+      }
+      .slider-wrapper {
+        display: flex;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        width: 100%;
+        height: 100%;
+      }
+      .slider-slide {
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased text-charcoalText">
+    <!-- Barre de défilement supérieure bleue -->
+    <div id="scroll-progress" class="bg-luxuryBlue"></div>
+
+    <!-- En-tête de page & Titre d'identité (Noir & Blanc moderne et épuré) -->
+    <header class="relative bg-white border-b border-darkBorder pt-24 pb-16 px-6 sm:px-12 md:px-16 lg:px-24">
+      <div class="absolute inset-0 bg-[radial-gradient(#E5E7EB_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+      
+      <div class="relative max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-12">
+        <!-- Identité -->
+        <div class="space-y-6">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-charcoalHead">
+            Olivier Martinez
+          </h1>
+          <p class="text-sm sm:text-base md:text-lg text-mutedText font-medium leading-relaxed max-w-3xl">
+            +6 ans d'expérience en marketing, product, sales et learning. Deux entreprises fondées, un livre publié et un salon présenté devant 350 personnes en 2024.<br />Je préfère l'action à la théorie, et j'avance avec l'envie de transmettre ce que j'apprends.
+          </p>
+          <div class="pt-4">
+            <a href="#consultation-inquiry" class="inline-flex items-center gap-3 rounded-2xl bg-luxuryBlue hover:bg-[#1D4ED8] text-white text-sm sm:text-base font-black tracking-widest uppercase px-10 py-5.5 sm:px-12 sm:py-6 transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl shadow-blue-600/20 active:bg-blue-800 cursor-pointer pointer-events-auto">
+              <i data-lucide="message-square" class="w-5 h-5 text-white"></i>
+              <span>Échangeons ensemble</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Barre de Navigation Sticky (Noir & Blanc minimaliste avec bouton bleu) -->
+    <nav class="sticky top-0 z-50 border-b border-darkBorder bg-white/95 backdrop-blur-md" id="sticky-tabs-nav">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between gap-4 w-full">
+        <!-- Onglets filtrés par catégories (Chargement dynamique par JS) -->
+        <div class="flex flex-nowrap overflow-x-auto no-scrollbar gap-1.5 sm:gap-4 py-2 sm:py-0 w-full lg:w-auto justify-between lg:justify-start" id="tabs-pills-container">
+          <!-- Chargé par JavaScript -->
+        </div>
+
+        <!-- Bouton d'action Bleu haut de gamme (Masqué sur mobile/tablette pour afficher tous les onglets) -->
+        <a href="#consultation-inquiry" class="hidden lg:inline-flex items-center gap-2 rounded-xl bg-luxuryBlue hover:bg-[#1D4ED8] text-white text-xs font-black tracking-widest uppercase px-6 py-3.5 transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-blue-600/10 cursor-pointer pointer-events-auto shrink-0">
+          <span>Échangeons ensemble</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Zone Principale (Colonnes intégrées et réparties pour l'alternance fluide de couleur de fond) -->
+    <main class="w-full">
+      
+      <!-- Conteneur global des catégories -->
+      <div id="portfolio-categories-root">
+        <!-- Injecté via JS -->
+      </div>
+
+    </main>
+
+    <!-- Forulaire de Contact Élevé -> "Contactez moi" (Très distingué visuellement) -->
+    <section id="consultation-inquiry" class="reveal py-24 px-6 sm:px-12 md:px-16 lg:px-24 bg-gradient-to-b from-white to-blue-50/30 border-t border-darkBorder relative overflow-hidden">
+      <!-- Glow d'arrière plan élégant -->
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-luxuryBlue/5 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="max-w-4xl mx-auto space-y-12 text-center relative z-10">
+        
+        <div class="space-y-3">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl text-charcoalHead font-black tracking-tight leading-tight">
+            Contactez moi
+          </h2>
+          <p class="text-sm sm:text-base text-mutedText max-w-xl mx-auto leading-relaxed">
+            Une question, un besoin en croissance ou un projet à forte valeur ajoutée ? Choisissez le canal le plus adapté pour démarrer notre collaboration.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left max-w-3xl mx-auto">
+          <!-- Telephone Link - Version Premium -->
+          <div class="group relative bg-white border border-darkBorder rounded-2xl p-6 hover:border-luxuryBlue hover:shadow-lg transition-all duration-300 flex flex-col justify-between shadow-sm">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-luxuryBlue group-hover:scale-110 group-hover:bg-luxuryBlue group-hover:text-white transition-all duration-300">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="text-[10px] font-black uppercase text-mutedText tracking-wider">Téléphone</h3>
+                <p class="text-lg font-black text-charcoalHead select-all mt-1">06 24 19 25 91</p>
+              </div>
+            </div>
+            <div class="mt-6">
+              <a href="tel:0624192591" onclick="window.location.href='tel:0624192591'; event.stopPropagation();" class="inline-flex items-center justify-center gap-1.5 text-xs bg-luxuryBlue hover:bg-luxuryBlueHover text-white px-4 py-3 rounded-xl font-bold tracking-wider uppercase transition-all transform hover:scale-[1.02] active:scale-[0.97] active:bg-blue-800 shadow-sm w-full cursor-pointer pointer-events-auto">
+                <span>Appeler</span>
+                <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Email Principal - Version Premium -->
+          <div class="group relative bg-white border border-darkBorder rounded-2xl p-6 hover:border-luxuryBlue hover:shadow-lg transition-all duration-300 flex flex-col justify-between shadow-sm">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-luxuryBlue group-hover:scale-110 group-hover:bg-luxuryBlue group-hover:text-white transition-all duration-300">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="text-[10px] font-black uppercase text-mutedText tracking-wider">Email Principal</h3>
+                <p class="text-xs sm:text-sm font-black text-charcoalHead select-all mt-2.5 break-all">martinez.olivier3@sfr.fr</p>
+              </div>
+            </div>
+            <div class="mt-6">
+              <a href="mailto:martinez.olivier3@sfr.fr" onclick="window.location.href='mailto:martinez.olivier3@sfr.fr'; event.stopPropagation();" class="inline-flex items-center justify-center gap-1.5 text-xs bg-luxuryBlue hover:bg-luxuryBlueHover text-white px-4 py-3 rounded-xl font-bold tracking-wider uppercase transition-all transform hover:scale-[1.02] active:scale-[0.97] active:bg-blue-800 shadow-sm w-full cursor-pointer pointer-events-auto">
+                <span>Écrire</span>
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Email Secondaire - Version Premium -->
+          <div class="group relative bg-white border border-darkBorder rounded-2xl p-6 hover:border-neutral-800 hover:shadow-lg transition-all duration-300 flex flex-col justify-between shadow-sm">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-800 group-hover:scale-110 group-hover:bg-neutral-900 group-hover:text-white transition-all duration-300">
+                <i data-lucide="briefcase" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="text-[10px] font-black uppercase text-mutedText tracking-wider">Email Pro</h3>
+                <p class="text-xs sm:text-sm font-black text-charcoalHead select-all mt-2.5 break-all font-mono">olivier@certure.fr</p>
+              </div>
+            </div>
+            <div class="mt-6">
+              <a href="mailto:olivier@certure.fr" onclick="window.location.href='mailto:olivier@certure.fr'; event.stopPropagation();" class="inline-flex items-center justify-center gap-1.5 text-xs bg-neutral-900 hover:bg-neutral-800 text-white px-4 py-3 rounded-xl font-bold tracking-wider uppercase transition-all transform hover:scale-[1.02] active:scale-[0.97] active:bg-neutral-950 shadow-sm w-full cursor-pointer pointer-events-auto">
+                <span>Écrire</span>
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="border-t border-darkBorder py-12 px-6 bg-white text-center">
+      <div class="max-w-6xl mx-auto text-xs text-mutedText font-semibold">
+        Fait avec ❤️ par Olivier
+      </div>
+    </footer>
+
+    <!-- Script complet traduisant le portfolio en Français, appliquant le thème Noir/Blanc & Onglets interactifs -->
+    <script>
+      // 1. Base complète traduisant les catégories d'Olivier Martinez
+      const PORTFOLIO_THEME_DATA = [
+        {
+          id: "partnerships",
+          name: "Partenariats",
+          icon: "handshake",
+          accentColor: "#2563EB",
+          glowClass: "card-accent-premium",
+          accentTextClass: "text-luxuryBlue",
+          accentBgClass: "bg-luxuryBlue",
+          accentBorderClass: "border-luxuryBlue/20",
+          items: [
+            {
+              title: "Recherche de partenaires et contractualisation",
+              description: "Sourcing pragmatique, qualification technique, négociation et signature de partenariats d'affaires de haut niveau pour asseoir la distribution de réseaux et maximiser la pénétration de marché B2B.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/F4gyMdzz/1080x1350-1.png",
+                "https://i.ibb.co/4nN0zrRt/Capture-d-e-cran-2026-06-08-a-13-21-15.png"
+              ],
+              icon: "file-signature"
+            },
+            {
+              title: "Co-organisation d'évènements",
+              description: "Organisation conjointe d’événements exclusifs (webinars, tables rondes, événements physiques de networking) pour stimuler la génération de leads B2B haut de gamme et asseoir l’autorité sectorielle.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/P7h5QBj/Capture-d-e-cran-2026-06-08-a-13-23-07.png",
+                "https://i.ibb.co/PGf2CkN8/Capture-d-e-cran-2026-06-08-a-13-24-17.png"
+              ],
+              icon: "calendar-days"
+            },
+            {
+              title: "Lancement d'un programme d'affiliation (Firstpromoter)",
+              description: "Mise en place de structures d'affiliation évolutives via la plateforme de référence Firstpromoter. Paramétrage des tableaux de bord partenaires, gestion automatisée des commissions et activation d'un canal de vente indirect ultra-performant.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/HpC1jNnB/Capture-d-e-cran-2026-06-08-a-13-27-34.png"
+              ],
+              icon: "network"
+            },
+            {
+              title: "Conception d'un programme de perks",
+              description: "Création d'offres privilèges croisées et de partenariats logiques d'avantages clients (perks d’intégration SaaS etc.) pour optimiser l'engagement utilisateur et augmenter la rétention moyenne. <div class='mt-3 font-semibold text-luxuryBlue bg-blue-50/50 border border-blue-100 rounded-lg px-3 py-1.5 inline-block text-xs'>Réduction sur +50 outils</div>",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/GfN2C2Vv/Capture-d-e-cran-2026-06-08-a-14-51-34.png"
+              ],
+              icon: "gift"
+            },
+            {
+              title: "Partenariats d'influence (Instagram, TikTok, LinkedIn)",
+              description: "Identifications, connexions et co-créations avec des créateurs de technologies haut de gamme et des experts métiers légitimes pour asseoir la visibilité de la marque via des formats vidéos courts.",
+              mediaType: "youtube-shorts",
+              embedUrls: [
+                "https://www.youtube.com/embed/p57gGPO8Jw8",
+                "https://www.youtube.com/embed/HQ98hwGLbv8"
+              ],
+              icon: "users-round"
+            }
+          ]
+        },
+        {
+          id: "ai-tools",
+          name: "IA",
+          icon: "cpu",
+          accentColor: "#2563EB",
+          glowClass: "card-accent-premium",
+          accentTextClass: "text-luxuryBlue",
+          accentBgClass: "bg-luxuryBlue",
+          accentBorderClass: "border-luxuryBlue/20",
+          items: [
+            {
+              title: "Captely Jump",
+              description: "Mini-jeu ludique interactif sous forme de jeu de saut de plateforme, conçu pour engager de manière gamifiée les visiteurs d’une page inexistante (erreur 404), optimiser la mémorisation de la marque et transformer une erreur technique de lien mort en opportunité d'acquisition client performante.",
+              customCallout: {
+                title: "Pour Jouer en Conditions Réelles",
+                html: `
+                  <div class="mt-4 p-5 rounded-xl bg-blue-50/70 border border-blue-200 text-sm space-y-3 w-full text-left">
+                    <div class="flex items-center gap-2 text-luxuryBlue font-black uppercase text-[11px] tracking-wider">
+                      <svg class="w-4 h-4 text-luxuryBlue flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                      Directives de test du mini-jeu interactif
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div class="bg-white p-3 rounded-lg border border-blue-100 flex items-start gap-2.5">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-100 text-[#2563EB] text-[10px] font-black flex-shrink-0">1</span>
+                        <div class="text-xs text-mutedText">
+                          Inscrivez-vous sur <a href="https://app.captely.com/signup" target="_blank" class="text-luxuryBlue font-black hover:underline">app.captely.com/signup</a>
+                        </div>
+                      </div>
+                      <div class="bg-white p-3 rounded-lg border border-blue-100 flex items-start gap-2.5">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-100 text-[#2563EB] text-[10px] font-black flex-shrink-0">2</span>
+                        <div class="text-xs text-mutedText">
+                          Visitez une page inexistante : <a href="https://app.captely.com/dash" target="_blank" class="text-luxuryBlue font-mono hover:underline text-[11px]">https://app.captely.com/dash</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                `
+              },
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/N2yNzHmP/Capture-d-e-cran-2026-06-08-a-13-40-22.png"
+              ],
+              icon: "gamepad-2"
+            },
+            {
+              title: "Email Warmup",
+              description: "Simulateur performant de préchauffage de boîtes de messagerie professionnelles s'appuyant sur des agents d'intelligence artificielle autonomes pour simuler des échanges complexes et maximiser la délivrabilité.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/PJrtYfr/Capture-d-e-cran-2026-06-08-a-13-42-20.png",
+                "https://i.postimg.cc/fbNwSHT4/Capture-d-e-cran-2026-06-08-a-13-46-28.png"
+              ],
+              icon: "mail-question"
+            },
+            {
+              title: "ICP Builder",
+              description: "SaaS de modélisation algorithmique pour identifier avec précision le profil de client idéal (Ideal Customer Profile) en combinant des enrichissements de données et l'extraction sémantique sectorielle. <div class='mt-2'><a href='https://app.captely.com/tools/icp-builder' target='_blank' class='inline-flex items-center gap-1.5 text-xs font-bold text-luxuryBlue hover:underline bg-blue-50/50 border border-blue-100 px-3 py-1.5 rounded-lg'><i data-lucide='external-link' class='w-3.5 h-3.5'></i> Accéder à l'outil ICP Builder</a></div>",
+              mediaType: "images",
+              urls: [
+                "https://i.postimg.cc/XNm6y2s6/Capture-d-e-cran-2026-06-08-a-13-48-20.png"
+              ],
+              icon: "binary"
+            },
+            {
+              title: "Signatures d'email",
+              description: "Conception et implémentation de chartes de signatures d'emails dynamiques de marque pour standardiser l'image institutionnelle de l'ensemble des collaborateurs d'une même entité.",
+              mediaType: "images",
+              urls: [
+                "https://i.postimg.cc/6QpBh8RY/Capture-d-e-cran-2026-06-08-a-13-50-00.png"
+              ],
+              icon: "file-text"
+            },
+            {
+              title: "Création de contenu marketing",
+              description: "Automatisation de la chaîne de production visuelle et textuelle marketing. Analyse d'intrants documentaires par modèles de langage et mise en page optimisée pour la viralité.",
+              mediaType: "mixed-media",
+              videoUrl: "https://www.youtube.com/embed/H8TAyym4LqY",
+              imageUrl: "https://i.ibb.co/TqcDkMLm/Capture-d-e-cran-2026-06-08-a-13-52-31.png",
+              icon: "sparkles"
+            },
+            {
+              title: "Bot SEO",
+              description: "Robot autonome analysant en temps réel les places de sémantiques cibles Google et listant instantanément les sujets inexploités à forte valeur commerciale.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/xqYNSz7f/Capture-d-e-cran-2026-06-08-a-13-56-04.png"
+              ],
+              icon: "bot"
+            }
+          ]
+        },
+        {
+          id: "growth-marketing",
+          name: "Marketing & Growth",
+          icon: "rocket",
+          accentColor: "#2563EB",
+          glowClass: "card-accent-premium",
+          accentTextClass: "text-luxuryBlue",
+          accentBgClass: "bg-luxuryBlue",
+          accentBorderClass: "border-luxuryBlue/20",
+          items: [
+            {
+              title: "Rédaction, conception et mise en page d'un livre sur le growth marketing",
+              description: "Auteur et concepteur d'un livre d'impact sur la distribution commerciale et les boucles de croissance numériques. <div class='mt-2.5'><a href='https://lire.amazon.fr/sample/B0DPVWHVFM?clientId=share' target='_blank' class='inline-flex items-center gap-1.5 text-xs font-bold text-luxuryBlue hover:underline bg-blue-50/50 border border-blue-100 px-3 py-1.5 rounded-lg'><i data-lucide='book-open' class='w-4 h-4'></i> Consulter l'échantillon sur Amazon</a></div>",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/C51Pxjv0/Capture-d-e-cran-2026-06-08-a-14-09-51.png"
+              ],
+              icon: "book-open"
+            },
+            {
+              title: "Lancement de podcast et d’une newsletter avec pour objectif la lead generation",
+              description: "Architecte d'un entonnoir de contenu engageant composé d'interviews d'experts qualifiés et d'analyses sectorielles diffusées par email pour asseoir l'autorité et collecter des leads matures. <div class='mt-2.5'><a href='https://certure.substack.com/' target='_blank' class='inline-flex items-center gap-1.5 text-xs font-bold text-luxuryBlue hover:underline bg-blue-50/50 border border-blue-100 px-3 py-1.5 rounded-lg'><i data-lucide='mail' class='w-4 h-4 text-orange-600'></i> S'abonner à la Newsletter Certure</a></div>",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/pBtWPJ44/Capture-d-e-cran-2026-06-08-a-14-14-24.png",
+                "https://i.ibb.co/cKvWC7ZS/Capture-d-e-cran-2026-06-08-a-14-15-04.png"
+              ],
+              icon: "megaphone"
+            },
+            {
+              title: "Stratégie de prospection B2B et lancement de campagnes multicanales",
+              description: "Orchestration technique de campagnes de prospection (cold emails, relances LinkedIn automatisées, pages de vente personnalisées) avec un ciblage chirurgical pour décrocher des sessions avec des comptes d'affaires.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/MDbGfyJc/Capture-d-e-cran-2026-06-08-a-14-20-04.png"
+              ],
+              icon: "target"
+            },
+            {
+              title: "SEO et SEO programmatique",
+              description: "Déploiement à grande échelle d'architectures sémantiques basées sur des bases de données locales structurées pour occuper rapidement les moteurs de recherche sur des termes de longue traîne ultra-convertisseurs.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/tTk3kRxK/Capture-d-e-cran-2026-06-08-a-14-22-27.png",
+                "https://i.ibb.co/Zv5jZtk/Capture-d-e-cran-2026-06-08-a-14-23-11.png"
+              ],
+              icon: "search-code"
+            },
+            {
+              title: "Création de sites internet (Wordpress, Webflow, IA)",
+              description: "Design esthétique d'interfaces Web hautement performantes pour assurer un temps de chargement éclair et un taux de conversion maximal (CRO).",
+              customCallout: {
+                html: `
+                  <div class="flex flex-col sm:flex-row gap-4 mt-2 mb-4 w-full">
+                    <a href="https://certure.fr/" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-luxuryBlue hover:bg-luxuryBlueHover text-white text-xs font-bold uppercase tracking-widest transition-all shadow-md w-full sm:w-auto">
+                      <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                      Accéder à Certure.fr
+                    </a>
+                    <a href="https://captely.com/" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-luxuryBlue hover:bg-luxuryBlueHover text-white text-xs font-bold uppercase tracking-widest transition-all shadow-md w-full sm:w-auto">
+                      <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                      Accéder à Captely.com
+                    </a>
+                  </div>
+                `
+              },
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/4nN8HY4q/Capture-d-e-cran-2026-06-08-a-14-24-52.png",
+                "https://i.ibb.co/VYTj2mc3/Capture-d-e-cran-2026-06-08-a-14-25-30.png"
+              ],
+              icon: "layout"
+            },
+            {
+              title: "Social Selling sur Linkedin",
+              description: "Ingénierie éditoriale et distribution de récits d'expertise métiers afin de développer durablement un capital de confiance et attirer des opportunités d'affaires de façon inbound et organique.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/LXnGH9qf/Capture-d-e-cran-2026-06-08-a-14-26-39.png"
+              ],
+              icon: "linkedin"
+            }
+          ]
+        },
+        {
+          id: "training-speaking",
+          name: "Formations & Conférences",
+          icon: "presentation",
+          accentColor: "#2563EB",
+          glowClass: "card-accent-premium",
+          accentTextClass: "text-luxuryBlue",
+          accentBgClass: "bg-luxuryBlue",
+          accentBorderClass: "border-luxuryBlue/20",
+          items: [
+            {
+              title: "Co-conception de programmes et animation d’ateliers de formation",
+              description: "Co-conception and animation clé en main du tout premier Bootcamp IA de la CCI d'Île-de-France. Formations de perfectionnement destinées aux porteurs de projets et cadres d'entreprises franciliennes.",
+              mediaType: "images",
+              urls: [
+                "https://media.licdn.com/dms/image/v2/D4E22AQFSZWw_pf9fIg/feedshare-image-high-res/B4EZzh5Mn8JAAU-/0/1773316395437?e=1782345600&v=beta&t=gTR9bmoE8E0RbLca1evXHq0u_e4MmGCuU1ALtEXUqdg",
+                "https://i.ibb.co/vC16KRmH/Capture-d-e-cran-2026-06-08-a-13-59-01.png"
+              ],
+              icon: "graduation-cap"
+            },
+            {
+              title: "Présentateur officiel du Growth Event (salon marketing)",
+              description: "Animation d'envergure sur scène et introduction des intervenants clés du plus grand salon national consacré au marketing et aux problématiques de croissance d'affaires digitales.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/ksLG4NLK/Capture-d-e-cran-2026-06-08-a-13-55-05.png",
+                "https://i.ibb.co/1Gjt5RnP/Capture-d-e-cran-2026-06-08-a-13-58-10.png"
+              ],
+              icon: "mic"
+            },
+            {
+              title: "Invitation lors du forum France / Afrique",
+              description: "Intervention d'influence et de prospective sémantique quant à la transition numérique et l'adoption d'outils d'adoption et de collaboration lors du forum bilatéral officiel organisé par PEMB et l'autorité de la Chambre de Commerce et d'Industrie.",
+              mediaType: "canvas",
+              videoType: "keynote-growth",
+              icon: "globe"
+            },
+            {
+              title: "Lancement de 2 formations E-learning (Accor, Amazon)",
+              description: "Conception complète de parcours de formation digitaux d'excellence technique, à l'attention des équipes d'Accor (Head of SEO), d'Amazon et de cadres e-commerce.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/N2QHf8D0/Capture-d-e-cran-2026-06-08-a-14-04-49.png",
+                "https://i.ibb.co/1fdkFjG4/Capture-d-e-cran-2026-06-08-a-14-07-09.png"
+              ],
+              icon: "video"
+            },
+            {
+              title: "Podcast",
+              description: "Série d'interviews dynamiques avec des leaders tech d'aujourd'hui, diffusée sur les canaux majeurs pour stimuler la réflexion stratégique. <div class='flex flex-wrap gap-2.5 mt-2.5'><a href='https://www.youtube.com/watch?v=P80RLaOMvsU&t=421s' target='_blank' class='inline-flex items-center gap-1.5 text-xs font-bold text-luxuryBlue hover:underline bg-blue-50/50 border border-blue-100 px-3 py-1.5 rounded-lg'><i data-lucide='youtube' class='w-4 h-4 text-rose-600'></i> Épisode : Mécaniques de Conversion</a><a href='https://www.youtube.com/watch?v=h2ZLSaVQZG8&list=LL&index=26&t=1462s' target='_blank' class='inline-flex items-center gap-1.5 text-xs font-bold text-luxuryBlue hover:underline bg-blue-50/50 border border-blue-100 px-3 py-1.5 rounded-lg'><i data-lucide='youtube' class='w-4 h-4 text-rose-600'></i> Épisode : Sourcing & Partenaires</a></div>",
+              mediaType: "youtube-embed-grid",
+              embedUrls: [
+                "https://www.youtube.com/embed/h2ZLSaVQZG8",
+                "https://www.youtube.com/embed/P80RLaOMvsU?start=421"
+              ],
+              icon: "headphones"
+            }
+          ]
+        }
+      ];
+
+      // 2. Base active de sliders
+      let activeSliders = {};
+
+      // 3. Lancement initial au chargement de la page
+      document.addEventListener("DOMContentLoaded", () => {
+        renderNavigationTabs();
+        renderCategoriesAndCards();
+        lucide.createIcons();
+        initializeScrollProgress();
+        initializeAnimationsOnScroll();
+        initializeSliderAutoPlay();
+
+        // Gestion de défilement fluide universelle et robuste (compatible iframes)
+        document.addEventListener("click", (e) => {
+          const target = e.target.closest("a[href^='#']");
+          if (target) {
+            const href = target.getAttribute("href");
+            if (href && href.startsWith("#")) {
+              e.preventDefault();
+              const element = document.querySelector(href);
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth", block: "start" });
+                history.pushState(null, null, href);
+              }
+            }
+          }
+        });
+      });
+
+      // 4. Génération des onglets de navigation sticky
+      function renderNavigationTabs() {
+        const pContainer = document.getElementById("tabs-pills-container");
+        pContainer.innerHTML = "";
+
+        PORTFOLIO_THEME_DATA.forEach((category) => {
+          const pill = document.createElement("a");
+          pill.href = `#${category.id}`;
+          pill.className = "flex items-center gap-1 sm:gap-2 px-1 xs:px-2.5 sm:px-4 py-4 sm:py-5 text-[9px] min-[375px]:text-[10px] min-[410px]:text-xs sm:text-xs font-black uppercase tracking-tight sm:tracking-wider text-mutedText hover:text-charcoalHead border-b-2 border-transparent transition-all whitespace-nowrap";
+          pill.id = `nav-link-${category.id}`;
+          pill.innerHTML = `
+            <i data-lucide="${category.icon}" class="w-3.5 h-3.5 sm:w-4 sm:h-4 hidden sm:inline-block"></i>
+            <span>${category.name}</span>
+          `;
+          
+          pContainer.appendChild(pill);
+        });
+      }
+
+      // 5. Structure de carte optimisée : TEXTE EN HAUT, PHOTO EN BAS. Onglets plus larges.
+      function renderCategoriesAndCards() {
+        const root = document.getElementById("portfolio-categories-root");
+        root.innerHTML = "";
+
+        PORTFOLIO_THEME_DATA.forEach((category, idx) => {
+          // Définition de section (Fonds alternés pour éviter la fatigue visuelle)
+          const section = document.createElement("section");
+          section.id = category.id;
+          
+          const bgNuanceClass = idx % 2 === 0 ? "bg-white" : "bg-[#F8FAFC]";
+          section.className = `reveal w-full ${bgNuanceClass} py-14 sm:py-20 px-3 sm:px-12 md:px-16 lg:px-24 border-b border-darkBorder/30 scroll-mt-24`;
+          
+          // Container interne centré à max-w-6xl
+          const sectionContainer = document.createElement("div");
+          sectionContainer.className = "max-w-6xl mx-auto space-y-8";
+          
+          const header = document.createElement("div");
+          header.className = "space-y-3";
+          header.innerHTML = `
+            <div class="flex flex-col border-b border-darkBorder pb-4">
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black text-charcoalHead tracking-tight">${category.name}</h3>
+            </div>
+          `;
+          sectionContainer.appendChild(header);
+
+          // Conteneur en une colonne (w-full max-w-6xl)
+          const listContainer = document.createElement("div");
+          listContainer.className = "flex flex-col gap-10 w-full";
+
+          // Génération des cas d'études
+          category.items.forEach((item, itemIdx) => {
+            const cardId = `card-${category.id}-${itemIdx}`;
+            const card = document.createElement("div");
+            card.id = cardId;
+            card.className = `group flex flex-col justify-between bg-white border border-darkBorder rounded-2xl p-4 sm:p-8 hover:border-luxuryBlue transition-all duration-300 relative overflow-hidden ${category.glowClass}`;
+            
+            // Partie textuelle en HAUT de la carte
+            const titleFontSizeClass = "text-xl sm:text-2xl font-black font-sans tracking-tight text-charcoalHead";
+            const customCalloutHtml = item.customCallout ? item.customCallout.html : '';
+
+            // Retrait des descriptions textuelles (les sous-titres) de la carte, tout en préservant les badges/boutons optionnels
+            let descriptionHtml = "";
+            if (item.description) {
+              const tagStartIndex = item.description.indexOf("<");
+              if (tagStartIndex !== -1) {
+                descriptionHtml = item.description.substring(tagStartIndex);
+              }
+            }
+
+            const topTextHtml = `
+              <div class="space-y-4 mb-6">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2 text-luxuryBlue">
+                    <i data-lucide="${item.icon || 'circle-dot'}" class="w-5 h-5"></i>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <h4 class="${titleFontSizeClass} transition-colors duration-300 leading-snug">${item.title}</h4>
+                  ${descriptionHtml}
+                  ${customCalloutHtml}
+                </div>
+              </div>
+            `;
+
+            // Partie visuelle en BAS de la carte (Spanning horizontal parfait)
+            let mediaTypeHtml = ``;
+
+            if (item.mediaType === "images") {
+              if (item.urls.length === 1) {
+                // Determine if we should make the main visual larger
+                const isAmazonOrLarge = item.title.includes("livre sur le growth marketing") || item.title.includes("Captely Jump");
+                const heightClass = isAmazonOrLarge ? "max-h-[580px]" : "max-h-[460px]";
+
+                mediaTypeHtml = `
+                  <div class="relative w-full rounded-xl border border-darkBorder bg-white flex items-center justify-center overflow-hidden p-1.5 sm:p-3 bg-[radial-gradient(#E5E7EB_1px,transparent_1px)] [background-size:24px_24px] opacity-100">
+                    <img src="${item.urls[0]}" class="max-w-full ${heightClass} w-auto h-auto object-contain rounded-lg" referrerPolicy="no-referrer" loading="lazy" />
+                  </div>
+                `;
+              } else if (item.urls.length === 2) {
+                mediaTypeHtml = `
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                    <div class="relative rounded-xl border border-darkBorder bg-white flex items-center justify-center overflow-hidden p-1.5 sm:p-3 bg-[radial-gradient(#E5E7EB_1px,transparent_1px)] [background-size:24px_24px] opacity-100">
+                      <img src="${item.urls[0]}" class="max-w-full max-h-[400px] w-auto h-auto object-contain rounded-lg" referrerPolicy="no-referrer" loading="lazy" />
+                    </div>
+                    <div class="relative rounded-xl border border-darkBorder bg-white flex items-center justify-center overflow-hidden p-1.5 sm:p-3 bg-[radial-gradient(#E5E7EB_1px,transparent_1px)] [background-size:24px_24px] opacity-100">
+                      <img src="${item.urls[1]}" class="max-w-full max-h-[400px] w-auto h-auto object-contain rounded-lg" referrerPolicy="no-referrer" loading="lazy" />
+                    </div>
+                  </div>
+                `;
+              }
+            } else if (item.mediaType === "youtube-shorts") {
+              mediaTypeHtml = `
+                <div class="space-y-4 w-full">
+                  <p class="text-xs text-center text-mutedText flex items-center justify-center gap-1.5 font-bold uppercase tracking-wider">
+                    <svg class="w-4 h-4 text-luxuryBlue animate-pulse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                    Cliquez sur les vidéos
+                  </p>
+                  <div class="flex flex-col sm:flex-row gap-6 items-center justify-center max-w-xl mx-auto bg-slate-50 p-4 sm:p-6 rounded-xl border border-dashed border-darkBorder">
+                    <!-- Premiere video -->
+                    <div class="rounded-xl overflow-hidden border border-darkBorder bg-black relative shadow-md aspect-[9/16] w-[200px] h-[356px] shrink-0 max-w-full">
+                      <iframe src="${item.embedUrls[0]}" class="absolute inset-0 w-full h-full border-none" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <!-- Deuxieme video (De taille strictement identique) -->
+                    <div class="rounded-xl overflow-hidden border border-darkBorder bg-black relative shadow-md aspect-[9/16] w-[200px] h-[356px] shrink-0 max-w-full">
+                      <iframe src="${item.embedUrls[1]}" class="absolute inset-0 w-full h-full border-none" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
+              `;
+            } else if (item.mediaType === "mixed-media") {
+              mediaTypeHtml = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-xl overflow-hidden border border-darkBorder bg-slate-50 p-2">
+                  <div class="relative overflow-hidden h-[260px] sm:h-[300px] bg-black rounded-lg">
+                    <iframe src="${item.videoUrl}" class="absolute inset-0 w-full h-full border-none" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div class="relative overflow-hidden h-[260px] sm:h-[300px] flex items-center justify-center bg-white rounded-lg p-2">
+                    <img src="${item.imageUrl}" class="max-w-full max-h-full object-contain rounded-md" referrerPolicy="no-referrer" loading="lazy" />
+                  </div>
+                </div>
+              `;
+            } else if (item.mediaType === "youtube-embed-grid") {
+              mediaTypeHtml = `
+                <div class="space-y-4 w-full">
+                  <p class="text-xs text-center text-mutedText flex items-center justify-center gap-1.5 font-bold uppercase tracking-wider">
+                    <svg class="w-4 h-4 text-luxuryBlue animate-pulse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                    Cliquez pour lancer les vidéos d'interviews
+                  </p>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                    <div class="rounded-xl overflow-hidden border border-darkBorder bg-black relative shadow-sm aspect-video">
+                      <iframe src="${item.embedUrls[0]}" class="absolute inset-0 w-full h-full border-none" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="rounded-xl overflow-hidden border border-darkBorder bg-black relative shadow-sm aspect-video">
+                      <iframe src="${item.embedUrls[1]}" class="absolute inset-0 w-full h-full border-none" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
+              `;
+            } else if (item.mediaType === "canvas") {
+              mediaTypeHtml = `
+                <div class="aspect-video md:aspect-[21/9] rounded-xl bg-gray-50 border border-darkBorder relative flex flex-col justify-center items-center overflow-hidden group/video min-h-[220px]" id="video-wrapper-${cardId}">
+                  <!-- Canvas réactif dynamique -->
+                  <canvas id="canvas-${cardId}" class="absolute inset-0 w-full h-full hidden z-10 bg-gray-50"></canvas>
+                  
+                  <!-- Couverture fixe -->
+                  <div id="video-static-${cardId}" class="relative z-20 flex flex-col items-center space-y-3 text-center p-6 w-full h-full justify-center bg-white">
+                    <div class="absolute top-3 left-3 bg-white border border-darkBorder px-2.5 py-0.5 rounded text-[9px] font-black text-luxuryBlue tracking-wider uppercase">
+                      Démonstration Vectorielle
+                    </div>
+                    
+                    <button onclick="bootInteractiveMedia('${cardId}', '${item.videoType}', '${category.accentColor}')" class="h-12 w-12 rounded-full bg-white border border-darkBorder flex items-center justify-center text-charcoalHead hover:text-white group-hover/video:scale-105 hover:bg-luxuryBlue hover:border-luxuryBlue transition-all duration-300 cursor-pointer shadow-md">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 fill-current ml-0.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </button>
+                    <div class="space-y-1">
+                      <div class="text-[10px] font-black tracking-wider text-mutedText uppercase">Lancer Le Simulateur Interactif</div>
+                      <p class="text-xs text-neutral-500 italic">Explorez la modélisation en temps réel</p>
+                    </div>
+                  </div>
+                  
+                  <!-- Contrôles du mode dynamique -->
+                  <div id="video-controls-${cardId}" class="absolute bottom-3 right-3 z-30 hidden bg-white border border-darkBorder px-2.5 py-1 rounded flex items-center gap-2 shadow-sm">
+                    <span class="text-[9px] font-bold text-mutedText uppercase">Simulation active</span>
+                    <button onclick="stopInteractiveMedia('${cardId}')" class="text-xs text-rose-500 font-bold hover:underline transition-all cursor-pointer">Arrêter</button>
+                  </div>
+                </div>
+              `;
+            }
+
+            // Assemblage structuré (TEXTE en premier, VISUEL en second)
+            card.innerHTML = `
+              ${topTextHtml}
+              ${mediaTypeHtml}
+            `;
+            listContainer.appendChild(card);
+          });
+
+          sectionContainer.appendChild(listContainer);
+          section.appendChild(sectionContainer);
+          root.appendChild(section);
+
+          // Ajout de blocs qui cassent avec leur couleur vibrante entre les catégories pour rythmer la lecture
+          if (idx === 0) {
+            // Après la catégorie de "Partenariats"
+            const breakBlock = document.createElement("div");
+            breakBlock.className = "reveal w-[92%] sm:w-[70%] max-w-4xl mx-auto bg-slate-900 border border-darkBorder/20 py-14 sm:py-20 px-6 text-center relative overflow-hidden rounded-3xl my-12 shadow-xl";
+            breakBlock.innerHTML = `
+              <div class="absolute inset-0 bg-gradient-to-r from-luxuryBlue/25 to-indigo-950/40 opacity-70 pointer-events-none"></div>
+              <div class="max-w-xl mx-auto relative z-10 py-2">
+                <a href="#consultation-inquiry" class="inline-flex items-center justify-center gap-4 rounded-2xl bg-white hover:bg-slate-50 text-luxuryBlue font-black tracking-widest uppercase px-12 py-6 text-sm sm:text-base w-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-xl border-2 border-white cursor-pointer pointer-events-auto">
+                  <span>Échangeons ensemble</span>
+                  <i data-lucide="message-square" class="w-5 h-5 text-luxuryBlue"></i>
+                </a>
+              </div>
+            `;
+            root.appendChild(breakBlock);
+          } else if (idx === 1) {
+            // Après la catégorie "IA"
+            const breakBlock = document.createElement("div");
+            breakBlock.className = "reveal w-[92%] sm:w-[70%] max-w-4xl mx-auto bg-gradient-to-r from-luxuryBlue to-blue-700 py-14 sm:py-20 px-6 text-center relative overflow-hidden rounded-3xl my-12 shadow-xl border border-luxuryBlue/25";
+            breakBlock.innerHTML = `
+              <div class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+              <div class="max-w-xl mx-auto relative z-10 py-2">
+                <a href="#consultation-inquiry" class="inline-flex items-center justify-center gap-4 rounded-2xl bg-white hover:bg-slate-50 text-luxuryBlue font-black tracking-widest uppercase px-12 py-6 text-sm sm:text-base w-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-xl border-2 border-white cursor-pointer pointer-events-auto">
+                  <span>Échangeons ensemble</span>
+                  <i data-lucide="message-square" class="w-5 h-5 text-luxuryBlue animate-pulse"></i>
+                </a>
+              </div>
+            `;
+            root.appendChild(breakBlock);
+          } else if (idx === 2) {
+            // Après la catégorie "Growth marketing"
+            const breakBlock = document.createElement("div");
+            breakBlock.className = "reveal w-[92%] sm:w-[70%] max-w-4xl mx-auto bg-slate-950 border border-darkBorder/20 py-14 sm:py-20 px-6 text-center relative overflow-hidden rounded-3xl my-12 shadow-xl";
+            breakBlock.innerHTML = `
+              <div class="absolute inset-0 bg-[radial-gradient(#1E293B_1px,transparent_1px)] [background-size:24px_24px] opacity-25"></div>
+              <div class="max-w-xl mx-auto relative z-10 py-2">
+                <a href="#consultation-inquiry" class="inline-flex items-center justify-center gap-4 rounded-2xl bg-white hover:bg-slate-50 text-luxuryBlue font-black tracking-widest uppercase px-12 py-6 text-sm sm:text-base w-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-xl border-2 border-white cursor-pointer pointer-events-auto">
+                  <span>Échangeons ensemble</span>
+                  <i data-lucide="message-square" class="w-5 h-5 text-luxuryBlue"></i>
+                </a>
+              </div>
+            `;
+            root.appendChild(breakBlock);
+          }
+        });
+
+        // Initialisation de la base des sliders pour manipulation
+        PORTFOLIO_THEME_DATA.forEach(cat => {
+          cat.items.forEach((item, idx) => {
+            if (item.mediaType === "slider") {
+              const cardId = `card-${cat.id}-${idx}`;
+              activeSliders[cardId] = {
+                currentIndex: 0,
+                totalSlides: item.sliderPhotos.length,
+                intervalId: null
+              };
+            }
+          });
+        });
+      }
+
+      // 6. Highlight de la barre sticky sur scroll & Progression de lecture
+      function initializeScrollProgress() {
+        const progress = document.getElementById("scroll-progress");
+        const nav = document.getElementById("sticky-tabs-nav");
+        
+        window.addEventListener("scroll", () => {
+          const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrolled = (winScroll / height) * 100;
+          progress.style.width = scrolled + "%";
+
+          if (winScroll > 80) {
+            nav.classList.add("shadow-md", "bg-white/95");
+          } else {
+            nav.classList.remove("shadow-md", "bg-white/95");
+          }
+
+          // Détecteur de catégorie active au scroll
+          PORTFOLIO_THEME_DATA.forEach(cat => {
+            const sec = document.getElementById(cat.id);
+            if (sec) {
+              const rect = sec.getBoundingClientRect();
+              const pillNav = document.getElementById(`nav-link-${cat.id}`);
+              
+              if (rect.top <= 140 && rect.bottom >= 140) {
+                pillNav.classList.add("text-luxuryBlue", "border-b-luxuryBlue");
+                pillNav.style.borderBottomColor = "#2563EB";
+                pillNav.style.color = "#2563EB";
+              } else {
+                pillNav.classList.remove("text-luxuryBlue", "border-b-luxuryBlue");
+                pillNav.style.borderBottomColor = "transparent";
+                pillNav.style.color = "";
+              }
+            }
+          });
+        });
+      }
+
+      // 7. Animations de scroll reveal
+      function initializeAnimationsOnScroll() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        }, {
+          threshold: 0.05,
+          rootMargin: "0px 0px -40px 0px"
+        });
+
+        document.querySelectorAll(".reveal").forEach(el => {
+          observer.observe(el);
+        });
+      }
+
+      // 8. Outils de contrôles des Sliders photos
+      function gotoSlide(cardId, slideIdx) {
+        const sliderRef = activeSliders[cardId];
+        if (!sliderRef) return;
+        
+        sliderRef.currentIndex = slideIdx;
+        updateSliderView(cardId);
+      }
+
+      function nextSlide(cardId) {
+        const sliderRef = activeSliders[cardId];
+        if (!sliderRef) return;
+        
+        sliderRef.currentIndex = (sliderRef.currentIndex + 1) % sliderRef.totalSlides;
+        updateSliderView(cardId);
+      }
+
+      function prevSlide(cardId) {
+        const sliderRef = activeSliders[cardId];
+        if (!sliderRef) return;
+        
+        sliderRef.currentIndex = (sliderRef.currentIndex - 1 + sliderRef.totalSlides) % sliderRef.totalSlides;
+        updateSliderView(cardId);
+      }
+
+      function updateSliderView(cardId) {
+        const sliderRef = activeSliders[cardId];
+        const wrapper = document.getElementById(`slider-wrapper-${cardId}`);
+        if (!wrapper) return;
+
+        const offset = -sliderRef.currentIndex * 100;
+        wrapper.style.transform = `translateX(${offset}%)`;
+
+        for (let i = 0; i < sliderRef.totalSlides; i++) {
+          const dot = document.getElementById(`dot-${cardId}-${i}`);
+          if (dot) {
+            if (i === sliderRef.currentIndex) {
+              dot.className = `w-1.5 h-1.5 rounded-full transition-all duration-300 bg-luxuryBlue w-6`;
+            } else {
+              dot.className = `w-1.5 h-1.5 rounded-full transition-all duration-300 bg-neutral-300`;
+            }
+          }
+        }
+      }
+
+      function startSliderTimer(cardId) {
+        const sliderRef = activeSliders[cardId];
+        if (!sliderRef) return;
+        
+        sliderRef.intervalId = setInterval(() => {
+          nextSlide(cardId);
+        }, 4000);
+      }
+
+      function pauseSlider(cardId) {
+        const sliderRef = activeSliders[cardId];
+        if (sliderRef && sliderRef.intervalId) {
+          clearInterval(sliderRef.intervalId);
+          sliderRef.intervalId = null;
+        }
+      }
+
+      function resumeSlider(cardId) {
+        const sliderRef = activeSliders[cardId];
+        if (sliderRef && !sliderRef.intervalId) {
+          startSliderTimer(cardId);
+        }
+      }
+
+      function initializeSliderAutoPlay() {
+        Object.keys(activeSliders).forEach(cardId => {
+          startSliderTimer(cardId);
+        });
+      }
+
+
+      // 9. Système de Simulation Canvas Interactif Vectoriel
+      let activeCanvasLoops = {};
+
+      function bootInteractiveMedia(cardId, simType, colorHex) {
+        const staticOverlay = document.getElementById(`video-static-${cardId}`);
+        const controlsPanel = document.getElementById(`video-controls-${cardId}`);
+        const canvas = document.getElementById(`canvas-${cardId}`);
+
+        if (!canvas) return;
+
+        staticOverlay.classList.add("hidden");
+        controlsPanel.classList.remove("hidden");
+        canvas.classList.remove("hidden");
+
+        const container = canvas.parentElement;
+        canvas.width = container.clientWidth;
+        canvas.height = container.clientHeight;
+
+        const ctx = canvas.getContext("2d");
+        let animationId;
+        
+        if (simType === "captely-jump") {
+          // Bulles flottantes connectées (modélisation de lead capture)
+          const particles = [];
+          for (let i = 0; i < 20; i++) {
+            particles.push({
+              x: Math.random() * canvas.width,
+              y: Math.random() * canvas.height,
+              vx: (Math.random() - 0.5) * 0.9,
+              vy: (Math.random() - 0.5) * 0.9,
+              r: Math.random() * 8 + 4
+            });
+          }
+
+          function drawElegantBubbleLoop() {
+            ctx.fillStyle = "#FAFBFD";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Grille légère
+            ctx.strokeStyle = "rgba(37,99,235,0.015)";
+            ctx.lineWidth = 1;
+            for (let x = 0; x < canvas.width; x += 40) {
+              ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+            }
+
+            particles.forEach(p => {
+              p.x += p.vx;
+              p.y += p.vy;
+
+              if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+              if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(37, 99, 235, 0.08)`;
+              ctx.fill();
+              ctx.strokeStyle = `rgba(37, 99, 235, 0.25)`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+
+              particles.forEach(p2 => {
+                const distance = Math.hypot(p.x - p2.x, p.y - p2.y);
+                if (distance < 120) {
+                  ctx.beginPath();
+                  ctx.moveTo(p.x, p.y);
+                  ctx.lineTo(p2.x, p2.y);
+                  ctx.strokeStyle = `rgba(37, 99, 235, 0.06)`;
+                  ctx.lineWidth = 0.8;
+                  ctx.stroke();
+                }
+              });
+            });
+
+            ctx.fillStyle = "#000000";
+            ctx.font = "bold 11px sans-serif";
+            ctx.fillText("CAPTELY JUMP — FLUX D'ENGAGEMENT B2B", 24, 32);
+            ctx.fillStyle = "#4B5563";
+            ctx.font = "normal 10px sans-serif";
+            ctx.fillText("Simulation des conversions qualifiées en continu", 24, 46);
+
+            animationId = requestAnimationFrame(drawElegantBubbleLoop);
+          }
+          drawElegantBubbleLoop();
+
+        } else if (simType === "seo-bot") {
+          // Ondes fluides de crawlers SEO
+          let time = 0;
+
+          function drawElegantSeaWaves() {
+            ctx.fillStyle = "#FAFBFD";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.lineWidth = 1.8;
+            for (let i = 0; i < 3; i++) {
+              ctx.strokeStyle = i === 0 ? "#2563EB" : `rgba(37, 99, 235, 0.25)`;
+              ctx.beginPath();
+              
+              const speed = time + i * 0.4;
+              for (let x = 0; x < canvas.width; x += 10) {
+                const y = canvas.height / 2 + Math.sin(x*0.015 - speed) * 18 + Math.cos(x*0.007 + speed) * 8;
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+              }
+              ctx.stroke();
+            }
+
+            ctx.fillStyle = "#000000";
+            ctx.font = "bold 11px sans-serif";
+            ctx.fillText("SEO BOT — INDEXATION CONTINUE DES SERP GOOGLE", 24, 32);
+            ctx.fillStyle = "#4B5563";
+            ctx.font = "normal 10px sans-serif";
+            ctx.fillText("Surveillance active : Algorithme de détection opportuniste", 24, 46);
+
+            time += 0.014;
+            animationId = requestAnimationFrame(drawElegantSeaWaves);
+          }
+          drawElegantSeaWaves();
+
+        } else if (simType === "keynote-growth") {
+          // Courbe d'autorité croissance index
+          let counter = 0;
+
+          function drawElegantChartScale() {
+            ctx.fillStyle = "#FAFBFD";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.strokeStyle = "#E5E7EB";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(40, canvas.height - 40);
+            ctx.lineTo(canvas.width - 40, canvas.height - 40);
+            ctx.stroke();
+
+            ctx.strokeStyle = "#2563EB";
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            for (let x = 40; x < canvas.width - 40; x++) {
+              const relX = (x - 40) / (canvas.width - 80);
+              const valY = Math.sin(relX * Math.PI / 2) * (canvas.height - 80);
+              const drawY = canvas.height - 40 - valY;
+              
+              if (x === 40) ctx.moveTo(x, drawY);
+              else ctx.lineTo(x, drawY);
+            }
+            ctx.stroke();
+
+            ctx.fillStyle = "#000000";
+            ctx.font = "bold 11px sans-serif";
+            ctx.fillText("CONFÉRENCES — TRAJECTOIRE D'INDEX DE CROISSANCE", 24, 32);
+            ctx.fillStyle = "#4B5563";
+            ctx.font = "normal 10px sans-serif";
+            ctx.fillText("Modèle d'échelle optimisé pour les comités de direction", 24, 46);
+
+            counter = (counter + 1) % 100;
+            animationId = requestAnimationFrame(drawElegantChartScale);
+          }
+          drawElegantChartScale();
+
+        } else if (simType === "elearning") {
+          // Propagation de cercles concentriques d'apprentissage
+          let scale = 1;
+
+          function drawConcentricGlow() {
+            ctx.fillStyle = "#FAFBFD";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+
+            for (let i = 0; i < 4; i++) {
+              const radius = ((scale + i * 25) % 100) + 10;
+              ctx.beginPath();
+              ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+              ctx.strokeStyle = `rgba(37, 99, 235, ${1 - radius/110})`;
+              ctx.lineWidth = 1.5;
+              ctx.stroke();
+            }
+
+            ctx.fillStyle = "#000000";
+            ctx.font = "bold 11px sans-serif";
+            ctx.fillText("E-LEARNING SYLLABUS METRIC", 24, 32);
+            ctx.fillStyle = "#4B5563";
+            ctx.font = "normal 10px sans-serif";
+            ctx.fillText("Indicateur dynamique de diplomation et succès apprenants", 24, 46);
+
+            scale += 0.45;
+            animationId = requestAnimationFrame(drawConcentricGlow);
+          }
+          drawConcentricGlow();
+        }
+
+        activeCanvasLoops[cardId] = animationId;
+      }
+
+      function stopInteractiveMedia(cardId) {
+        const staticOverlay = document.getElementById(`video-static-${cardId}`);
+        const controlsPanel = document.getElementById(`video-controls-${cardId}`);
+        const canvas = document.getElementById(`canvas-${cardId}`);
+
+        if (activeCanvasLoops[cardId]) {
+          cancelAnimationFrame(activeCanvasLoops[cardId]);
+          delete activeCanvasLoops[cardId];
+        }
+
+        if (canvas) {
+          canvas.classList.add("hidden");
+        }
+        if (controlsPanel) {
+          controlsPanel.classList.add("hidden");
+        }
+        if (staticOverlay) {
+          staticOverlay.classList.remove("hidden");
+        }
+      }
+
+      // 10. Gestionnaire d'expédition du formulaire
+      function handleInquirySubmit(e) {
+        e.preventDefault();
+        
+        // Cacher les champs formulaires
+        document.getElementById("portfolio-contact-form").classList.add("hidden");
+        // Afficher l'état de validation
+        document.getElementById("form-success-container").classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
