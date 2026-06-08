@@ -141,8 +141,8 @@
             +6 ans d'expérience en marketing, product, sales et learning. Deux entreprises fondées, un livre publié et un salon présenté devant 350 personnes en 2024.<br />Je préfère l'action à la théorie, et j'avance avec l'envie de transmettre ce que j'apprends.
           </p>
           <div class="pt-4">
-            <a href="#consultation-inquiry" class="inline-flex items-center gap-3 rounded-2xl bg-luxuryBlue hover:bg-[#1D4ED8] text-white text-sm sm:text-base font-black tracking-widest uppercase px-10 py-5.5 sm:px-12 sm:py-6 transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl shadow-blue-600/20 active:bg-blue-800 cursor-pointer pointer-events-auto">
-              <i data-lucide="message-square" class="w-5 h-5 text-white"></i>
+            <a href="#consultation-inquiry" class="inline-flex items-center gap-4 rounded-2xl bg-luxuryBlue hover:bg-[#1D4ED8] text-white text-sm sm:text-base font-black tracking-widest uppercase px-12 py-6 sm:px-16 sm:py-7.5 transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl shadow-blue-600/20 active:bg-blue-800 cursor-pointer pointer-events-auto">
+              <i data-lucide="message-square" class="w-5.5 h-5.5 text-white"></i>
               <span>Échangeons ensemble</span>
             </a>
           </div>
@@ -150,19 +150,13 @@
       </div>
     </header>
 
-    <!-- Barre de Navigation Sticky (Noir & Blanc minimaliste avec bouton bleu) -->
+    <!-- Barre de Navigation Sticky (Noir & Blanc minimaliste) -->
     <nav class="sticky top-0 z-50 border-b border-darkBorder bg-white/95 backdrop-blur-md" id="sticky-tabs-nav">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between gap-4 w-full">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-center w-full">
         <!-- Onglets filtrés par catégories (Chargement dynamique par JS) -->
-        <div class="flex flex-nowrap overflow-x-auto no-scrollbar gap-1.5 sm:gap-4 py-2 sm:py-0 w-full lg:w-auto justify-between lg:justify-start" id="tabs-pills-container">
+        <div class="grid grid-cols-2 sm:flex sm:flex-nowrap items-center justify-between w-full sm:justify-start gap-x-3 gap-y-1 sm:gap-6 md:gap-8 py-2 sm:py-0" id="tabs-pills-container">
           <!-- Chargé par JavaScript -->
         </div>
-
-        <!-- Bouton d'action Bleu haut de gamme (Masqué sur mobile/tablette pour afficher tous les onglets) -->
-        <a href="#consultation-inquiry" class="hidden lg:inline-flex items-center gap-2 rounded-xl bg-luxuryBlue hover:bg-[#1D4ED8] text-white text-xs font-black tracking-widest uppercase px-6 py-3.5 transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-blue-600/10 cursor-pointer pointer-events-auto shrink-0">
-          <span>Échangeons ensemble</span>
-          <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
-        </a>
       </div>
     </nav>
 
@@ -262,6 +256,29 @@
 
     <!-- Script complet traduisant le portfolio en Français, appliquant le thème Noir/Blanc & Onglets interactifs -->
     <script>
+      // Fonction de secours si une photo ne se charge pas (ImgBB, LinkedIn ou CDN capricieux)
+      function handleImageError(img, title) {
+        img.style.display = 'none';
+        const parent = img.parentElement;
+        if (parent) {
+          // Si le fallback n'existe pas déjà, on le crée
+          if (!parent.querySelector('.img-fallback')) {
+            const fallback = document.createElement("div");
+            fallback.className = "img-fallback flex flex-col items-center justify-center text-center p-6 space-y-3 bg-[#F8FAFC]/55 w-full min-h-[220px] border border-dashed border-darkBorder rounded-lg";
+            fallback.innerHTML = `
+              <div class="p-3 bg-blue-50 text-luxuryBlue rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-6 h-6"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              </div>
+              <div>
+                <p class="text-xs font-black text-charcoalHead uppercase tracking-wider">${title || 'Aperçu Indisponible'}</p>
+                <p class="text-[10px] text-mutedText mt-1">Capture d'écran de l'outil en cours de rechargement - Service opérationnel</p>
+              </div>
+            `;
+            parent.appendChild(fallback);
+          }
+        }
+      }
+
       // 1. Base complète traduisant les catégories d'Olivier Martinez
       const PORTFOLIO_THEME_DATA = [
         {
@@ -304,15 +321,6 @@
               icon: "network"
             },
             {
-              title: "Conception d'un programme de perks",
-              description: "Création d'offres privilèges croisées et de partenariats logiques d'avantages clients (perks d’intégration SaaS etc.) pour optimiser l'engagement utilisateur et augmenter la rétention moyenne. <div class='mt-3 font-semibold text-luxuryBlue bg-blue-50/50 border border-blue-100 rounded-lg px-3 py-1.5 inline-block text-xs'>Réduction sur +50 outils</div>",
-              mediaType: "images",
-              urls: [
-                "https://i.ibb.co/GfN2C2Vv/Capture-d-e-cran-2026-06-08-a-14-51-34.png"
-              ],
-              icon: "gift"
-            },
-            {
               title: "Partenariats d'influence (Instagram, TikTok, LinkedIn)",
               description: "Identifications, connexions et co-créations avec des créateurs de technologies haut de gamme et des experts métiers légitimes pour asseoir la visibilité de la marque via des formats vidéos courts.",
               mediaType: "youtube-shorts",
@@ -321,6 +329,98 @@
                 "https://www.youtube.com/embed/HQ98hwGLbv8"
               ],
               icon: "users-round"
+            },
+            {
+              title: "Conception d'un programme de perks",
+              description: "Création d'offres privilèges croisées et de partenariats logiques d'avantages clients (perks d’intégration SaaS etc.) pour optimiser l'engagement utilisateur et augmenter la rétention moyenne. <div class='mt-3 font-semibold text-luxuryBlue bg-blue-50/50 border border-blue-100 rounded-lg px-3 py-1.5 inline-block text-xs'>Réduction sur +50 outils</div>",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/GfN2C2Vv/Capture-d-e-cran-2026-06-08-a-14-51-34.png"
+              ],
+              icon: "gift"
+            }
+          ]
+        },
+        {
+          id: "growth-marketing",
+          name: "Marketing & Growth",
+          icon: "rocket",
+          accentColor: "#2563EB",
+          glowClass: "card-accent-premium",
+          accentTextClass: "text-luxuryBlue",
+          accentBgClass: "bg-luxuryBlue",
+          accentBorderClass: "border-luxuryBlue/20",
+          items: [
+            {
+              title: "Rédaction, conception et mise en page d'un livre sur le growth marketing",
+              description: "Auteur et concepteur d'un livre d'impact sur la distribution commerciale et les boucles de croissance numériques. <div class='mt-2.5'><a href='https://lire.amazon.fr/sample/B0DPVWHVFM?clientId=share' target='_blank' class='inline-flex items-center gap-1.5 text-xs font-bold text-luxuryBlue hover:underline bg-blue-50/50 border border-blue-100 px-3 py-1.5 rounded-lg'><i data-lucide='book-open' class='w-4 h-4'></i> Consulter l'échantillon sur Amazon</a></div>",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/C51Pxjv0/Capture-d-e-cran-2026-06-08-a-14-09-51.png"
+              ],
+              icon: "book-open"
+            },
+            {
+              title: "Lancement de podcast et d’une newsletter avec pour objectif la lead generation",
+              description: "Architecte d'un entonnoir de contenu engageant composé d'interviews d'experts qualifiés et d'analyses sectorielles diffusées par email pour asseoir l'autorité et collecter des leads matures. <div class='mt-2.5'><a href='https://certure.substack.com/' target='_blank' class='inline-flex items-center gap-1.5 text-xs font-bold text-luxuryBlue hover:underline bg-blue-50/50 border border-blue-100 px-3 py-1.5 rounded-lg'><i data-lucide='mail' class='w-4 h-4 text-orange-600'></i> S'abonner à la Newsletter Certure</a></div>",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/pBtWPJ44/Capture-d-e-cran-2026-06-08-a-14-14-24.png",
+                "https://i.ibb.co/cKvWC7ZS/Capture-d-e-cran-2026-06-08-a-14-15-04.png"
+              ],
+              icon: "megaphone"
+            },
+            {
+              title: "Stratégie de prospection B2B et lancement de campagnes multicanales",
+              description: "Orchestration technique de campagnes de prospection (cold emails, relances LinkedIn automatisées, pages de vente personnalisées) avec un ciblage chirurgical pour décrocher des sessions avec des comptes d'affaires.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/MDbGfyJc/Capture-d-e-cran-2026-06-08-a-14-20-04.png"
+              ],
+              icon: "target"
+            },
+            {
+              title: "SEO et SEO programmatique",
+              description: "Déploiement à grande échelle d'architectures sémantiques basées sur des bases de données locales structurées pour occuper rapidement les moteurs de recherche sur des termes de longue traîne ultra-convertisseurs.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/tTk3kRxK/Capture-d-e-cran-2026-06-08-a-14-22-27.png",
+                "https://i.ibb.co/Zv5jZtk/Capture-d-e-cran-2026-06-08-a-14-23-11.png"
+              ],
+              icon: "search-code"
+            },
+            {
+              title: "Création de sites internet (Wordpress, Webflow, IA)",
+              description: "Design esthétique d'interfaces Web hautement performantes pour assurer un temps de chargement éclair et un taux de conversion maximal (CRO).",
+              customCallout: {
+                html: `
+                  <div class="flex flex-col sm:flex-row gap-4 mt-2 mb-4 w-full">
+                    <a href="https://certure.fr/" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-luxuryBlue hover:bg-luxuryBlueHover text-white text-xs font-bold uppercase tracking-widest transition-all shadow-md w-full sm:w-auto">
+                      <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                      Accéder à Certure.fr
+                    </a>
+                    <a href="https://captely.com/" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-luxuryBlue hover:bg-luxuryBlueHover text-white text-xs font-bold uppercase tracking-widest transition-all shadow-md w-full sm:w-auto">
+                      <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                      Accéder à Captely.com
+                    </a>
+                  </div>
+                `
+              },
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/4nN8HY4q/Capture-d-e-cran-2026-06-08-a-14-24-52.png",
+                "https://i.ibb.co/VYTj2mc3/Capture-d-e-cran-2026-06-08-a-14-25-30.png"
+              ],
+              icon: "layout"
+            },
+            {
+              title: "Social Selling sur Linkedin",
+              description: "Ingénierie éditoriale et distribution de récits d'expertise métiers afin de développer durablement un capital de confiance et attirer des opportunités d'affaires de façon inbound et organique.",
+              mediaType: "images",
+              urls: [
+                "https://i.ibb.co/LXnGH9qf/Capture-d-e-cran-2026-06-08-a-14-26-39.png"
+              ],
+              icon: "linkedin"
             }
           ]
         },
@@ -412,89 +512,6 @@
                 "https://i.ibb.co/xqYNSz7f/Capture-d-e-cran-2026-06-08-a-13-56-04.png"
               ],
               icon: "bot"
-            }
-          ]
-        },
-        {
-          id: "growth-marketing",
-          name: "Marketing & Growth",
-          icon: "rocket",
-          accentColor: "#2563EB",
-          glowClass: "card-accent-premium",
-          accentTextClass: "text-luxuryBlue",
-          accentBgClass: "bg-luxuryBlue",
-          accentBorderClass: "border-luxuryBlue/20",
-          items: [
-            {
-              title: "Rédaction, conception et mise en page d'un livre sur le growth marketing",
-              description: "Auteur et concepteur d'un livre d'impact sur la distribution commerciale et les boucles de croissance numériques. <div class='mt-2.5'><a href='https://lire.amazon.fr/sample/B0DPVWHVFM?clientId=share' target='_blank' class='inline-flex items-center gap-1.5 text-xs font-bold text-luxuryBlue hover:underline bg-blue-50/50 border border-blue-100 px-3 py-1.5 rounded-lg'><i data-lucide='book-open' class='w-4 h-4'></i> Consulter l'échantillon sur Amazon</a></div>",
-              mediaType: "images",
-              urls: [
-                "https://i.ibb.co/C51Pxjv0/Capture-d-e-cran-2026-06-08-a-14-09-51.png"
-              ],
-              icon: "book-open"
-            },
-            {
-              title: "Lancement de podcast et d’une newsletter avec pour objectif la lead generation",
-              description: "Architecte d'un entonnoir de contenu engageant composé d'interviews d'experts qualifiés et d'analyses sectorielles diffusées par email pour asseoir l'autorité et collecter des leads matures. <div class='mt-2.5'><a href='https://certure.substack.com/' target='_blank' class='inline-flex items-center gap-1.5 text-xs font-bold text-luxuryBlue hover:underline bg-blue-50/50 border border-blue-100 px-3 py-1.5 rounded-lg'><i data-lucide='mail' class='w-4 h-4 text-orange-600'></i> S'abonner à la Newsletter Certure</a></div>",
-              mediaType: "images",
-              urls: [
-                "https://i.ibb.co/pBtWPJ44/Capture-d-e-cran-2026-06-08-a-14-14-24.png",
-                "https://i.ibb.co/cKvWC7ZS/Capture-d-e-cran-2026-06-08-a-14-15-04.png"
-              ],
-              icon: "megaphone"
-            },
-            {
-              title: "Stratégie de prospection B2B et lancement de campagnes multicanales",
-              description: "Orchestration technique de campagnes de prospection (cold emails, relances LinkedIn automatisées, pages de vente personnalisées) avec un ciblage chirurgical pour décrocher des sessions avec des comptes d'affaires.",
-              mediaType: "images",
-              urls: [
-                "https://i.ibb.co/MDbGfyJc/Capture-d-e-cran-2026-06-08-a-14-20-04.png"
-              ],
-              icon: "target"
-            },
-            {
-              title: "SEO et SEO programmatique",
-              description: "Déploiement à grande échelle d'architectures sémantiques basées sur des bases de données locales structurées pour occuper rapidement les moteurs de recherche sur des termes de longue traîne ultra-convertisseurs.",
-              mediaType: "images",
-              urls: [
-                "https://i.ibb.co/tTk3kRxK/Capture-d-e-cran-2026-06-08-a-14-22-27.png",
-                "https://i.ibb.co/Zv5jZtk/Capture-d-e-cran-2026-06-08-a-14-23-11.png"
-              ],
-              icon: "search-code"
-            },
-            {
-              title: "Création de sites internet (Wordpress, Webflow, IA)",
-              description: "Design esthétique d'interfaces Web hautement performantes pour assurer un temps de chargement éclair et un taux de conversion maximal (CRO).",
-              customCallout: {
-                html: `
-                  <div class="flex flex-col sm:flex-row gap-4 mt-2 mb-4 w-full">
-                    <a href="https://certure.fr/" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-luxuryBlue hover:bg-luxuryBlueHover text-white text-xs font-bold uppercase tracking-widest transition-all shadow-md w-full sm:w-auto">
-                      <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                      Accéder à Certure.fr
-                    </a>
-                    <a href="https://captely.com/" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-luxuryBlue hover:bg-luxuryBlueHover text-white text-xs font-bold uppercase tracking-widest transition-all shadow-md w-full sm:w-auto">
-                      <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                      Accéder à Captely.com
-                    </a>
-                  </div>
-                `
-              },
-              mediaType: "images",
-              urls: [
-                "https://i.ibb.co/4nN8HY4q/Capture-d-e-cran-2026-06-08-a-14-24-52.png",
-                "https://i.ibb.co/VYTj2mc3/Capture-d-e-cran-2026-06-08-a-14-25-30.png"
-              ],
-              icon: "layout"
-            },
-            {
-              title: "Social Selling sur Linkedin",
-              description: "Ingénierie éditoriale et distribution de récits d'expertise métiers afin de développer durablement un capital de confiance et attirer des opportunités d'affaires de façon inbound et organique.",
-              mediaType: "images",
-              urls: [
-                "https://i.ibb.co/LXnGH9qf/Capture-d-e-cran-2026-06-08-a-14-26-39.png"
-              ],
-              icon: "linkedin"
             }
           ]
         },
@@ -596,7 +613,7 @@
         PORTFOLIO_THEME_DATA.forEach((category) => {
           const pill = document.createElement("a");
           pill.href = `#${category.id}`;
-          pill.className = "flex items-center gap-1 sm:gap-2 px-1 xs:px-2.5 sm:px-4 py-4 sm:py-5 text-[9px] min-[375px]:text-[10px] min-[410px]:text-xs sm:text-xs font-black uppercase tracking-tight sm:tracking-wider text-mutedText hover:text-charcoalHead border-b-2 border-transparent transition-all whitespace-nowrap";
+          pill.className = "flex items-center justify-center gap-1 sm:gap-2 px-1 sm:px-4 py-2 sm:py-5 text-[11px] min-[360px]:text-xs sm:text-xs md:text-sm font-black uppercase tracking-tight sm:tracking-wider text-mutedText hover:text-charcoalHead border-b-2 border-transparent transition-all whitespace-nowrap";
           pill.id = `nav-link-${category.id}`;
           pill.innerHTML = `
             <i data-lucide="${category.icon}" class="w-3.5 h-3.5 sm:w-4 sm:h-4 hidden sm:inline-block"></i>
@@ -683,17 +700,17 @@
 
                 mediaTypeHtml = `
                   <div class="relative w-full rounded-xl border border-darkBorder bg-white flex items-center justify-center overflow-hidden p-1.5 sm:p-3 bg-[radial-gradient(#E5E7EB_1px,transparent_1px)] [background-size:24px_24px] opacity-100">
-                    <img src="${item.urls[0]}" class="max-w-full ${heightClass} w-auto h-auto object-contain rounded-lg" referrerPolicy="no-referrer" loading="lazy" />
+                    <img src="${item.urls[0]}" class="max-w-full ${heightClass} w-auto h-auto object-contain rounded-lg" onerror="handleImageError(this, '${item.title.replace(/'/g, "\\'")}')" referrerPolicy="no-referrer" loading="lazy" />
                   </div>
                 `;
               } else if (item.urls.length === 2) {
                 mediaTypeHtml = `
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                     <div class="relative rounded-xl border border-darkBorder bg-white flex items-center justify-center overflow-hidden p-1.5 sm:p-3 bg-[radial-gradient(#E5E7EB_1px,transparent_1px)] [background-size:24px_24px] opacity-100">
-                      <img src="${item.urls[0]}" class="max-w-full max-h-[400px] w-auto h-auto object-contain rounded-lg" referrerPolicy="no-referrer" loading="lazy" />
+                      <img src="${item.urls[0]}" class="max-w-full max-h-[400px] w-auto h-auto object-contain rounded-lg" onerror="handleImageError(this, '${item.title.replace(/'/g, "\\'")}')" referrerPolicy="no-referrer" loading="lazy" />
                     </div>
                     <div class="relative rounded-xl border border-darkBorder bg-white flex items-center justify-center overflow-hidden p-1.5 sm:p-3 bg-[radial-gradient(#E5E7EB_1px,transparent_1px)] [background-size:24px_24px] opacity-100">
-                      <img src="${item.urls[1]}" class="max-w-full max-h-[400px] w-auto h-auto object-contain rounded-lg" referrerPolicy="no-referrer" loading="lazy" />
+                      <img src="${item.urls[1]}" class="max-w-full max-h-[400px] w-auto h-auto object-contain rounded-lg" onerror="handleImageError(this, '${item.title.replace(/'/g, "\\'")}')" referrerPolicy="no-referrer" loading="lazy" />
                     </div>
                   </div>
                 `;
@@ -724,7 +741,7 @@
                     <iframe src="${item.videoUrl}" class="absolute inset-0 w-full h-full border-none" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   </div>
                   <div class="relative overflow-hidden h-[260px] sm:h-[300px] flex items-center justify-center bg-white rounded-lg p-2">
-                    <img src="${item.imageUrl}" class="max-w-full max-h-full object-contain rounded-md" referrerPolicy="no-referrer" loading="lazy" />
+                    <img src="${item.imageUrl}" class="max-w-full max-h-full object-contain rounded-md" onerror="handleImageError(this, '${item.title.replace(/'/g, "\\'")}')" referrerPolicy="no-referrer" loading="lazy" />
                   </div>
                 </div>
               `;
@@ -795,7 +812,7 @@
             breakBlock.innerHTML = `
               <div class="absolute inset-0 bg-gradient-to-r from-luxuryBlue/25 to-indigo-950/40 opacity-70 pointer-events-none"></div>
               <div class="max-w-xl mx-auto relative z-10 py-2">
-                <a href="#consultation-inquiry" class="inline-flex items-center justify-center gap-4 rounded-2xl bg-white hover:bg-slate-50 text-luxuryBlue font-black tracking-widest uppercase px-12 py-6 text-sm sm:text-base w-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-xl border-2 border-white cursor-pointer pointer-events-auto">
+                <a href="#consultation-inquiry" class="inline-flex items-center justify-center gap-3.5 rounded-2xl bg-white hover:bg-slate-50 text-luxuryBlue font-black tracking-widest uppercase px-8 py-4 sm:px-10 sm:py-4.5 text-xs sm:text-sm md:text-base w-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-xl border-2 border-white cursor-pointer pointer-events-auto">
                   <span>Échangeons ensemble</span>
                   <i data-lucide="message-square" class="w-5 h-5 text-luxuryBlue"></i>
                 </a>
@@ -809,7 +826,7 @@
             breakBlock.innerHTML = `
               <div class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
               <div class="max-w-xl mx-auto relative z-10 py-2">
-                <a href="#consultation-inquiry" class="inline-flex items-center justify-center gap-4 rounded-2xl bg-white hover:bg-slate-50 text-luxuryBlue font-black tracking-widest uppercase px-12 py-6 text-sm sm:text-base w-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-xl border-2 border-white cursor-pointer pointer-events-auto">
+                <a href="#consultation-inquiry" class="inline-flex items-center justify-center gap-3.5 rounded-2xl bg-white hover:bg-slate-50 text-luxuryBlue font-black tracking-widest uppercase px-8 py-4 sm:px-10 sm:py-4.5 text-xs sm:text-sm md:text-base w-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-xl border-2 border-white cursor-pointer pointer-events-auto">
                   <span>Échangeons ensemble</span>
                   <i data-lucide="message-square" class="w-5 h-5 text-luxuryBlue animate-pulse"></i>
                 </a>
@@ -823,7 +840,7 @@
             breakBlock.innerHTML = `
               <div class="absolute inset-0 bg-[radial-gradient(#1E293B_1px,transparent_1px)] [background-size:24px_24px] opacity-25"></div>
               <div class="max-w-xl mx-auto relative z-10 py-2">
-                <a href="#consultation-inquiry" class="inline-flex items-center justify-center gap-4 rounded-2xl bg-white hover:bg-slate-50 text-luxuryBlue font-black tracking-widest uppercase px-12 py-6 text-sm sm:text-base w-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-xl border-2 border-white cursor-pointer pointer-events-auto">
+                <a href="#consultation-inquiry" class="inline-flex items-center justify-center gap-3.5 rounded-2xl bg-white hover:bg-slate-50 text-luxuryBlue font-black tracking-widest uppercase px-8 py-4 sm:px-10 sm:py-4.5 text-xs sm:text-sm md:text-base w-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-xl border-2 border-white cursor-pointer pointer-events-auto">
                   <span>Échangeons ensemble</span>
                   <i data-lucide="message-square" class="w-5 h-5 text-luxuryBlue"></i>
                 </a>
